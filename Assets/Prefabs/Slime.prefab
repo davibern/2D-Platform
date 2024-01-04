@@ -183,8 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6999350c6b7392b48821331c0217a2ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movHor: 1
-  speed: 3
+  movHor: -1
+  speed: 1
   isGroundFloor: 1
   isGroundFront: 0
   groundLayer:
