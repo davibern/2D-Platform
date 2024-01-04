@@ -95,6 +95,13 @@ public class Player : MonoBehaviour
             this.gameObject.SetActive(false);
     }
 
+    public void AddLive() {
+        lives++;
+
+        if (lives > Game.obj.maxLives)
+            lives = Game.obj.maxLives;
+    }
+
     // Occurs when a Scene or game ends
     void OnDestroy() {
         // Finish the object Singleton

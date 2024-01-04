@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // Attributes
+    public int scoreGive = 100;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    // Detect when the player collision with
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("Player")) {
+            Game.obj.AddScore(scoreGive);
+            gameObject.SetActive(false);
+        }
     }
 }
