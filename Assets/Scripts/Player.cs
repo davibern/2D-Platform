@@ -87,6 +87,14 @@ public class Player : MonoBehaviour
         transform.localScale = scale;
     }
 
+    // Method to remove lives
+    public void GetDamage() {
+        lives--;
+
+        if (lives <= 0)
+            this.gameObject.SetActive(false);
+    }
+
     // Occurs when a Scene or game ends
     void OnDestroy() {
         // Finish the object Singleton

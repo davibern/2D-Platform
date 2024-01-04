@@ -56,6 +56,23 @@ public class Enemy : MonoBehaviour
         _rb.velocity = new Vector2(movHor * speed, _rb.velocity.y);
     }
 
+    // Check if the collider hit collision
+    void OnCollisionEnter2D(Collision2D other) {
+        // Damage to player
+        if (other.gameObject.CompareTag("Player")) {
+            // Thaks to singleton we can obtaint the class withou instances
+            Player.obj.GetDamage();
+        }
+    }
+
+    // Check if the collider enter in other collider
+    void OnTriggerEnter2D(Collider2D other) {
+        // Destroy the enemy
+        if (other.gameObject.CompareTag("Player")) {
+            GetKilled();
+        }
+    }
+
     // Desactive the gameobject if enemy is dead
     void GetKilled() {
         gameObject.SetActive(false);
