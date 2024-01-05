@@ -73,6 +73,9 @@ public class Player : MonoBehaviour
 
         // If not is jumping
         _rb.velocity = Vector2.up * jumpForce;
+
+        // Play audio clip
+        AudioManager.obj.PlayJump();
     }
 
     // Rotate the scale transform if player move to left or right
@@ -90,6 +93,9 @@ public class Player : MonoBehaviour
     // Method to remove lives
     public void GetDamage() {
         lives--;
+
+        // Play audio clip
+        AudioManager.obj.PlayHit();
 
         if (lives <= 0) {
             this.gameObject.SetActive(false);

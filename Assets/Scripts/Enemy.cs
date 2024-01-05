@@ -69,6 +69,9 @@ public class Enemy : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         // Destroy the enemy
         if (other.gameObject.CompareTag("Player")) {
+            // Play audio clip
+            AudioManager.obj.PlayEnemyHit();
+            // Destroy game object
             GetKilled();
         }
     }

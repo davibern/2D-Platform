@@ -16,6 +16,8 @@ public class Life : MonoBehaviour
             Player.obj.AddLive();
             // Show effect
             FXManager.obj.ShowPop(transform.position);
+            // Play audio clip
+            AudioManager.obj.PlayCoin();
             // Non active object
             gameObject.SetActive(false);
         }
