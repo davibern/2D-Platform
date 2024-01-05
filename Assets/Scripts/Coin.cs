@@ -10,7 +10,11 @@ public class Coin : MonoBehaviour
     // Detect when the player collision with
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
+            // Give score
             Game.obj.AddScore(scoreGive);
+            // Show effect
+            FXManager.obj.ShowPop(transform.position);
+            // Non active object
             gameObject.SetActive(false);
         }
     }

@@ -75,6 +75,9 @@ public class Enemy : MonoBehaviour
 
     // Desactive the gameobject if enemy is dead
     void GetKilled() {
+        // Show effect
+        FXManager.obj.ShowPop(transform.position);
+        // Non active object
         gameObject.SetActive(false);
     }
 }

@@ -91,8 +91,10 @@ public class Player : MonoBehaviour
     public void GetDamage() {
         lives--;
 
-        if (lives <= 0)
+        if (lives <= 0) {
             this.gameObject.SetActive(false);
+            Game.obj.GameOver();
+        }
     }
 
     public void AddLive() {
