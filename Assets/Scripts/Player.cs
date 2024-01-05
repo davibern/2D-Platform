@@ -54,6 +54,19 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
             Jump();
 
+        // Implements the inmunity (when player touchs an enemy he will inmune with a special animations)
+        if (isImmune) {
+            _spr.enabled = !_spr.enabled;
+
+            // Decrement the counter 
+            immuneTimecnt -= Time.deltaTime;
+
+            if (immuneTimecnt <= 0) {
+                isImmune = false;
+                _spr.enabled = true;
+            }
+        }
+
         // Animations
         _anim.SetBool("IsMoving", isMooving);
         _anim.SetBool("IsGrounded", isGrounded);
@@ -64,6 +77,12 @@ public class Player : MonoBehaviour
     // Use to calculate the physics calculations
     void FixedUpdate() {
         _rb.velocity = new Vector2(movHor * speed, _rb.velocity.y);
+    }
+
+    void GoImmune() {
+        isImmune = true;
+        // Reset the counter
+        immuneTimecnt = immuneTime;
     }
 
     // Method to jump the player
@@ -96,6 +115,9 @@ public class Player : MonoBehaviour
 
         // Play audio clip
         AudioManager.obj.PlayHit();
+
+        // Convert to immune
+        GoImmune();
 
         if (lives <= 0) {
             this.gameObject.SetActive(false);
