@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
             Jump();
 
         // Animations
-        _anim.SetBool("isMoving", isMooving);
+        _anim.SetBool("IsMoving", isMooving);
         _anim.SetBool("IsGrounded", isGrounded);
 
         Flip(movHor);
