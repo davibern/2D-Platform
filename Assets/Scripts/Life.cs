@@ -18,6 +18,9 @@ public class Life : MonoBehaviour
             FXManager.obj.ShowPop(transform.position);
             // Play audio clip
             AudioManager.obj.PlayCoin();
+            // Update the score points text and live
+            UIManager.obj.UpdateScore();
+            UIManager.obj.UpdateLives();
             // Non active object
             gameObject.SetActive(false);
         }

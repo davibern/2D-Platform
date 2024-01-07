@@ -45,6 +45,12 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+        // If game is paused the player wont move
+        if (Game.obj.isGamePaused) {
+            movHor = 0f;
+            return;
+        }
+
         movHor = Input.GetAxisRaw("Horizontal");
 
         isMooving = (movHor != 0f);
@@ -115,6 +121,9 @@ public class Player : MonoBehaviour
 
         // Play audio clip
         AudioManager.obj.PlayHit();
+
+        // Update the lives text
+        UIManager.obj.UpdateLives();
 
         // Convert to immune
         GoImmune();

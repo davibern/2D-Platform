@@ -25,14 +25,12 @@ public class Enemy : MonoBehaviour
     public int scoreGive = 50;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         _rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         // Avoid to fall
         isGroundFloor = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y - floorCheckY, transform.position.z), new Vector3(movHor, 0, 0), frontGrndRayDist, groundLayer);
 

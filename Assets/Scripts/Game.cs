@@ -23,6 +23,8 @@ public class Game : MonoBehaviour
     {
         // Define the game is not paused
         isGamePaused = false;
+        // At the start show the men
+        UIManager.obj.StartGame();
     }
 
     // Method to save the score that player haves while is playing
