@@ -107,6 +107,7 @@ public class Player : MonoBehaviour
         AudioManager.obj.PlayJump();
     }
 
+    // Rebound if player hit an enemy
     private void Rebound() {
         _rb.velocity = Vector2.up * jumpForce;
         hit = false;
