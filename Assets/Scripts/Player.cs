@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public bool isGrounded = false;
     public bool isMooving = false;
     public bool isImmune = false;
+    public bool hit = false;
     public float speed = 5f;
     public float jumpForce = 3f;
     public float movHor;
@@ -60,6 +61,9 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
             Jump();
 
+        if (hit)
+            Rebound();
+
         // Implements the inmunity (when player touchs an enemy he will inmune with a special animations)
         if (isImmune) {
             _spr.enabled = !_spr.enabled;
@@ -101,6 +105,11 @@ public class Player : MonoBehaviour
 
         // Play audio clip
         AudioManager.obj.PlayJump();
+    }
+
+    private void Rebound() {
+        _rb.velocity = Vector2.up * jumpForce;
+        hit = false;
     }
 
     // Rotate the scale transform if player move to left or right

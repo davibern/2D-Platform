@@ -69,6 +69,8 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.CompareTag("Player")) {
             // Play audio clip
             AudioManager.obj.PlayEnemyHit();
+            // Jump player
+            Player.obj.hit = true;
             // Destroy game object
             GetKilled();
         }
