@@ -83,6 +83,10 @@ public class Enemy : MonoBehaviour
     void GetKilled() {
         // Show effect
         FXManager.obj.ShowPop(transform.position);
+        // Give score
+        Game.obj.AddScore(scoreGive);
+        // Update the score points text and live
+        UIManager.obj.UpdateScore();
         // Non active object
         gameObject.SetActive(false);
         // Destroy object
