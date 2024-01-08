@@ -6,6 +6,7 @@ public class Pop : MonoBehaviour
 {
     // Singleton class
     public static Pop obj;
+    public float livingTime = 0.5f;
 
     // Init the class
     void Awake() {
@@ -21,6 +22,7 @@ public class Pop : MonoBehaviour
     // Function to hide the object
     public void Dissapear() {
         gameObject.SetActive(false);
+        Destroy(gameObject, livingTime);
     }
 
     // Destroy the class (only one instanciate)

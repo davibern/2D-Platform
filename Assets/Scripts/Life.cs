@@ -6,6 +6,7 @@ public class Life : MonoBehaviour
 {
     // Attributes
     public int scoreGive = 30;
+    public float livingTime = 0.5f;
 
     // Detect when the player collision with
     private void OnTriggerEnter2D(Collider2D other) {
@@ -23,6 +24,8 @@ public class Life : MonoBehaviour
             UIManager.obj.UpdateLives();
             // Non active object
             gameObject.SetActive(false);
+            // Destroy object
+            Destroy(gameObject, livingTime);
         }
     }
 }
