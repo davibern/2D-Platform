@@ -6,6 +6,7 @@ public class Coin : MonoBehaviour
 {
     // Attributes
     public int scoreGive = 100;
+    public float livingTime = 0.5f;
 
     // Detect when the player collision with
     private void OnTriggerEnter2D(Collider2D other) {
@@ -20,6 +21,8 @@ public class Coin : MonoBehaviour
             UIManager.obj.UpdateScore();
             // Non active object
             gameObject.SetActive(false);
+            // Destroy object
+            Destroy(gameObject, livingTime);
         }
     }
 }

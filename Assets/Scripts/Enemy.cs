@@ -24,6 +24,9 @@ public class Enemy : MonoBehaviour
     // Attributes for scoring
     public int scoreGive = 50;
 
+    // Attributes for living
+    public float livintTime = 0.5f;
+
     // Start is called before the first frame update
     void Start() {
         _rb = GetComponent<Rigidbody2D>();
@@ -82,5 +85,7 @@ public class Enemy : MonoBehaviour
         FXManager.obj.ShowPop(transform.position);
         // Non active object
         gameObject.SetActive(false);
+        // Destroy object
+        Destroy(gameObject, livintTime);
     }
 }
