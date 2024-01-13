@@ -30,8 +30,6 @@ public class UIManager : MonoBehaviour
 
     // Show the start menu
     public void StartGame() {
-        AudioManager.obj.PlayGui();
-
         Game.obj.isGamePaused = true;
         uiPanel.gameObject.SetActive(true);
     }
