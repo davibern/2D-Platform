@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +19,8 @@ public class UIManager : MonoBehaviour
     // Instantiate the singleton class
     private void Awake() {
         obj = this;
+        // Init the scene with the current score
+        scoreLbl.text = PlayerPrefs.GetInt("score").ToString();
     }
 
     // Update the lives text ui
