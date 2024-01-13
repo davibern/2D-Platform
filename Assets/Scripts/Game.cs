@@ -35,7 +35,7 @@ public class Game : MonoBehaviour
     // Method when the game is over
     public void GameOver() {
         // Reset the current scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(0);
     }
 
     // Call to destroy the singleton object and when the game ends
