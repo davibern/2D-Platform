@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -30,8 +31,9 @@ public class UIManager : MonoBehaviour
 
     // Show the start menu
     public void StartGame() {
-        Game.obj.isGamePaused = true;
-        uiPanel.gameObject.SetActive(true);
+        AudioManager.obj.PlayGui();
+        Game.obj.isGamePaused = false;
+        uiPanel.gameObject.SetActive(false);
     }
 
     // Hide the start menu
@@ -39,6 +41,10 @@ public class UIManager : MonoBehaviour
         AudioManager.obj.PlayGui();
         Game.obj.isGamePaused = false;
         uiPanel.gameObject.SetActive(false);
+    }
+
+    public void LoadGame() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     // Destroy the class (singleton only must have one)
