@@ -34,6 +34,7 @@ public class AudioManager : MonoBehaviour
 
     private void PlaySound(AudioClip clip) {
         audioSource.PlayOneShot(clip);
+        audioSource.volume = 0.5f;
     }
 
     // Destruct the class
