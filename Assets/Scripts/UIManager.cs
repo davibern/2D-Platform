@@ -48,6 +48,9 @@ public class UIManager : MonoBehaviour
     }
 
     public void LoadGame() {
+        // Reset score when player clic new game
+        PlayerPrefs.SetInt("score", 0);
+        // Load first level
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
